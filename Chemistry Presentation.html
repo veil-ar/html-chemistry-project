@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radioactive Decay Presentation</title>
+    <style>
+      body {
+        font-family: "Calibri", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      .slide {
+        width: 100%;
+        height: 100vh;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #dbeafe, #e6f7ff);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      .title-slide {
+        background: linear-gradient(135deg, #003366, #004080);
+        color: white;
+      }
+      .content-slide {
+        color: #003366;
+      }
+      h1,
+      h2 {
+        margin: 20px 0;
+      }
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        max-width: 850px;
+      }
+      .highlight {
+        color: #ff6600;
+        font-weight: bold;
+      }
+      .image-placeholder {
+        width: 80%;
+        height: 250px;
+        margin: 20px auto;
+        border: 2px dashed #003366;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        color: #555;
+      }
+      .footer {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        color: #777;
+      }
+      .container {
+        display: flex;
+        padding-left: 20%;
+      }
+      .stability-label {
+        font-size: 20px;
+        padding-top: 22%;
+      }
+      #isotope {
+        position: relative;
+        cursor: pointer;
+      }
+      #isotope::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -160%; /* Adjust depending on positioning needs */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #003366;
+        color: white;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+        z-index: 10;
+      }
+      #isotope:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #positron {
+        position: relative;
+        cursor: pointer;
+      }
+      #positron::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: -160%; /* Adjust depending on positioning needs */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #003366;
+        color: white;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+        z-index: 10;
+      }
+      #positron:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+      .decay-type {
+        padding-top: 10%;
+      }
+      .decay-diagram {
+        padding-top: 5%;
+      }
+      #alpha-decay-diagram {
+        width: 100%;
+        size: 100%;
+        padding-top: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Title Slide -->
+    <div class="slide title-slide">
+      <h1>The Chemistry of Time</h1>
+      <h2>Understanding Decay and Stability</h2>
+      <p>
+        Exploring transformations within the nucleus and their impact on the
+        world around us.
+      </p>
+    </div>
+
+    <!-- Slide 2: Introduction to Decay -->
+    <div class="slide content-slide">
+      <h1>What is Radioactive Decay?</h1>
+      <p>
+        Radioactive decay is the process by which
+        <span class="highlight">unstable atomic nuclei</span> release energy to
+        get a stable configuration. It occurs naturally in
+        <span
+          class="highlight"
+          id="isotope"
+          data-tooltip="Same no. of protons, different no. of neutrons."
+          >isotopes</span
+        >
+        with an imbalance in their charge.
+      </p>
+      <div id="image-placeholder" class="decay-diagram">
+        <img src="decay-diagram.jpg" />
+      </div>
+    </div>
+
+    <!-- Slide 3: Types of Decay Overview -->
+    <div class="slide content-slide">
+      <h1>Types of Radioactive Decay</h1>
+      <p class="decay-type" style="font-size: 1.5rem">
+        <span class="highlight" style="font-size: 1.7rem">Alpha Decay</span>:
+        Emission of alpha particles (2 protons, 2 neutrons).<br />
+        <span class="highlight" style="font-size: 1.7rem">Beta-Minus Decay</span
+        >: Converting a neutron into a proton and electron.<br />
+        <span class="highlight" style="font-size: 1.7rem">Beta-Plus Decay</span
+        >: Converting a proton into a neutron and
+        <span
+          class="highlight"
+          id="positron"
+          data-tooltip="A positively charged electron"
+          >positron</span
+        >.
+      </p>
+    </div>
+
+    <!-- Slide 4: Alpha Decay -->
+    <div class="slide content-slide">
+      <h1>Alpha Decay</h1>
+      <p>
+        Alpha decay involves the emission of an
+        <span class="highlight">alpha particle</span>, consisting of 2 protons
+        and 2 neutrons. This reduces the<span class="highlight">
+          mass number</span
+        >
+        by 4 and the <span class="highlight">atomic number</span> by 2, forming
+        a new element two places lower on the periodic table.
+      </p>
+      <div id="image-placeholder">
+        <img id="alpha-decay-diagram" src="alpha-decay-diagram.webp" />
+      </div>
+    </div>
+
+    <!-- Slide 5: Beta-Minus Decay -->
+    <div class="slide content-slide">
+      <h1>Beta-Minus Decay</h1>
+      <p>
+        In beta-minus decay, a <span class="highlight">neutron</span> converts
+        into a <span class="highlight">proton</span>, which remains in the
+        nucleus, and an <span class="highlight">electron</span>, emitted as a
+        beta particle. This process keeps the<span class="highlight">
+          mass number</span
+        >
+        unchanged and increases the<span class="highlight"> atomic number</span>
+        by 1, forming a new element higher on the table.
+      </p>
+      <div id="image-placeholder">
+        <img id="alpha-decay-diagram" src="beta-minus-decay.png" />
+      </div>
+    </div>
+
+    <!-- Slide 6: Beta-Plus Decay -->
+    <div class="slide content-slide">
+      <h1>Beta-Plus Decay</h1>
+      <p>
+        In beta-plus decay, a <span class="highlight">proton</span> converts
+        into a <span class="highlight">neutron</span>, which remains in the
+        nucleus, and a
+        <span
+          class="highlight"
+          id="positron"
+          data-tooltip="A positively charged electron"
+          >positron</span
+        >, emitted from the nucleus. This process keeps the<span
+          class="highlight"
+        >
+          mass number</span
+        >
+        unchanged and decreases the<span class="highlight"> atomic number</span>
+        by 1, forming a new element lower on the table.
+      </p>
+      <div id="image-placeholder">
+        <img id="alpha-decay-diagram" src="beta-plus-decay.png" />
+      </div>
+    </div>
+
+    <!-- Slide 7: Stability Graph -->
+    <div class="slide content-slide">
+      <h1>Proton-Neutron Stability Graph</h1>
+      <p>
+        The stability of a nucleus is determined by its position on the
+        <span class="highlight">proton-neutron (N-Z) graph</span>. Stable nuclei
+        lie along the "stability line." Radioisotopes off this line decay to
+        restore balance:
+      </p>
+      <div class="container" id="image-placeholder">
+        <img src="Band of Stability.png" />
+        <ul class="stability-label">
+          <li>
+            <span class="highlight">Too many neutrons:</span> Undergo beta-minus
+            decay.
+          </li>
+          <li>
+            <span class="highlight">Too many protons:</span> Undergo beta-plus
+            decay.
+          </li>
+          <li>
+            <span class="highlight">High proton count (above 82):</span> Undergo
+            alpha decay.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 8: Real-World Applications -->
+    <div class="slide content-slide">
+      <h1>Applications of Radioactive Decay</h1>
+      <p>Radioactive decay is important in fields such as:</p>
+      <ul>
+        <li>
+          <span class="highlight">Carbon Dating:</span> You can determine the age of
+          ancient artifacts and fossils through using Carbon-14 and comparing it's half-life to that of the artifacts and fossils to find the date of origin unless it is too old to be carbon-dated. 
+        </li>
+        <br>
+        <li>
+          <span class="highlight">Medicine:</span> It's often used for treating cancer with isotopes like Cobalt-60 and Iodine-131, using these isotopes to kill cancer cells.
+        </li>
+        <br>
+        <li>
+          <span class="highlight">Medical Imagery:</span> Isotopes like Technetium-99 and Fluorine-18 are used in <span class="highlight" id="positron" data-tooltip="Uses radioactive tracers to create detailed images of organ function and detect diseases like cancer.">PET</span> and <span class="highlight" id="positron" data-tooltip="Similar to PET but uses gamma rays to visualize blood flow and organ activity, often for heart and brain scans.">SPECT</span> scans to diagnose diseases.
+        </li>
+        <br>
+        <li>
+          <span class="highlight">Energy Production:</span> Uranium-235 and plutonium-239 undergo controlled fission reactions to generate electricity, whereas when you go into space, you need long-term useable energy i.e. Radioisotope Thermoelectric Generators or RTGs.
+        </li>
+        <br>
+        <li><span class="highlight">Construction Flaws:</span> Gamma rays from isotopes like iridium-192 are used to inspect welds and detect structural flaws.
+        
+        </li>
+      </ul>
+    <div class="footer">© 2025 Chemistry Competition</div>
+  </body>
+</html>
